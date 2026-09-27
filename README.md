@@ -114,6 +114,9 @@ anotada (`git tag -a`).
 | **v1.0.0**   | Release inicial  | 13 commits `feat:` + 1 `chore:` (ver `CHANGELOG.md`) | Primeira versão estável e funcional da SPA completa. |
 | **v1.0.1**   | Patch (hotfix)   | `hotfix: adiciona parâmetro de versão (?v=N) nos links de CSS...` | Corrige bug real de cache do navegador servindo CSS desatualizado. |
 | **v1.0.2**   | Patch (docs)     | `docs: documenta estrutura de pastas, estratégia de branches...` | Documentação técnica completa; sem alteração de comportamento do software. |
+| **v1.0.3**   | Patch (docs)     | `docs: adiciona CHANGELOG.md e documenta Conventional Commits + SemVer...` | Cria o CHANGELOG e documenta a estratégia de versionamento. |
+| **v1.0.4**   | Patch (docs)     | `docs: explica no README por que as branches feature/hotfix foram mantidas...` | Justifica a permanência das branches para fins de avaliação. |
+| **v1.0.5**   | Patch (docs)     | `docs: adiciona ao CHANGELOG.md as entradas das versões 1.0.3 e 1.0.4 que faltavam` | Correção de um esquecimento no próprio changelog. |
 
 > **Por que v1.0.2 e não v1.1.0?** Pela definição estrita do SemVer, o MINOR
 > só deve subir quando uma funcionalidade nova e compatível é entregue ao
