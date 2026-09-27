@@ -33,7 +33,7 @@ function paginaInicio() {
     <section class="conteudo" aria-labelledby="titulo-inicio">
         <h2 id="titulo-inicio">Bem vindos ao PATA AMIGA!</h2>
 
-        <img src="../imagens/gato.jpg" alt="Gato branco e preto esticando a pata em sua direção" width="100">
+        <img src="/gato.jpg"alt="Gato branco e preto esticando a pata em sua direção" width="100">
 
         <p>
             Aqui você encontra gatinhos esperando por um lar cheio de carinho.
@@ -309,9 +309,9 @@ function paginaNaoEncontrada() {
    -------------------------------------------------------------------------- */
 
 const gatosDisponiveis = [
-  { nome: 'Bento',  idade: '2 anos', foto: '../imagens/bento.jpg', status: 'padrao'},
-  { nome: 'Luna',   idade: '1 ano',  foto: '../imagens/Luna.jpg', status: 'aceito'},
-  { nome: 'Simba',  idade: '3 anos', foto: '../imagens/Simba.jpg', status: 'erro' },
+ { nome: 'Bento', idade: '2 anos', foto: '/bento.jpg', status: 'padrao' },
+{ nome: 'Luna', idade: '1 ano', foto: '/Luna.jpg', status: 'aceito' },
+{ nome: 'Simba', idade: '3 anos', foto: '/Simba.jpg', status: 'erro' },
 ];
 
 // Mapa que traduz o "status" (dado bruto) para a aparência do badge
