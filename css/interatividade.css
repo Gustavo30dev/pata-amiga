@@ -1,0 +1,70 @@
+/* ==========================================================================
+   PATA AMIGA — INTERATIVIDADE (estados de botões + validação de formulário)
+   ========================================================================== */
+
+.acoes-formulario button {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.btn-enviar:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.btn-cancelar:hover {
+  background-color: var(--cor-borda);
+}
+
+.acoes-formulario button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(232, 131, 74, 0.45);
+}
+
+.acoes-formulario button:active {
+  transform: scale(0.97);
+}
+
+.acoes-formulario button:disabled {
+  background-color: var(--cor-borda);
+  color: var(--cor-texto-suave);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   FORMULÁRIO — validação visual dos campos
+   -------------------------------------------------------------------------- */
+
+.campo-formulario input,
+.campo-formulario textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(232, 131, 74, 0.25);
+}
+
+/* Campo inválido: fundo permanece branco; o estado é indicado pela borda
+   vermelha e por um halo discreto ao redor do campo. */
+.campo-formulario input:not(:placeholder-shown):invalid,
+.campo-formulario textarea:not(:placeholder-shown):invalid {
+  border-width: 2px;
+  border-color: var(--cor-erro);
+  background-color: #fff;
+  color: var(--cor-texto);
+  box-shadow: 0 0 0 3px rgba(192, 69, 58, 0.18);
+}
+
+/* Campo válido: fundo continua branco; o estado é indicado pela borda
+   verde e por um halo discreto. */
+.campo-formulario input:not(:placeholder-shown):valid,
+.campo-formulario textarea:not(:placeholder-shown):valid {
+  border-width: 2px;
+  border-color: var(--cor-sucesso);
+  background-color: #fff;
+  color: var(--cor-texto);
+  box-shadow: 0 0 0 3px rgba(74, 124, 78, 0.18);
+}
