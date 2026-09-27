@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pata Amiga</title>
+
+    <link rel="stylesheet" href="../css/variables.css?v=2">
+    <link rel="stylesheet" href="../css/grid.css?v=2">
+    <link rel="stylesheet" href="../css/flexbox.css?v=4">
+    <link rel="stylesheet" href="../css/navegacao.css?v=3">
+    <link rel="stylesheet" href="../css/interatividade.css?v=4">
+    <link rel="stylesheet" href="../css/style.css?v=5">
+    <link rel="stylesheet" href="../css/feedback.css?v=5">
+    <link rel="stylesheet" href="../css/cards.css?v=1">
+    <link rel="stylesheet" href="../css/login.css?v=1">
+</head>
+<body class="pagina-spa">
+
+    <header class="cabecalho-flex">
+        <h1><img class="logo" src="../imagens/logo.png" alt="logo laranja escrito pata amiga" width="200"></h1>
+
+        <div class="menu-coluna">
+            <img class="tira-gatos" src="../imagens/gatosmenu-preto.png" alt="Ilustração de quatro gatinhos em traço fino">
+            <nav class="menu-nav">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+                <label for="menu-toggle" class="menu-toggle-label" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-lista">☰</label>
+
+                <ul class="menu-lista" id="menu-lista">
+                    <li><a href="#/inicio" data-rota="inicio">Início</a></li>
+                    <li class="tem-submenu">
+                        <a href="#/projeto" data-rota="projeto">Projeto</a>
+                        <ul class="submenu">
+                            <li><a href="#/projeto" data-rota="projeto" data-scroll="sobre">Sobre a ONG</a></li>
+                            <li><a href="#/projeto" data-rota="projeto" data-scroll="ajudar">Como ajudar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/cadastro" data-rota="cadastro">Cadastro</a></li>
+                    <li><a href="#/inicio" data-rota="inicio" data-scroll="login-inicio">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--
+        A div abaixo é o "coração" da SPA: seu conteúdo é inteiramente
+        substituído pelo js/router.js a cada navegação, via innerHTML.
+        Note que ela já nasce vazia — quem preenche é o JavaScript.
+    -->
+    <main id="app" class="grid-container">
+        <!-- Conteúdo injetado dinamicamente pelo router.js -->
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Pata Amiga - Todos os direitos reservados.</p>
+    </footer>
+
+    <!--
+        BIBLIOTECA EXTERNA: Day.js (manipulação de datas)
+        Carregada via CDN, em ordem: núcleo -> locale pt-br -> plugin de
+        tempo relativo. Ela se conecta ao objeto global "dayjs" - o
+        router.js verifica se ele existe antes de usar, então, se o CDN
+        falhar (sem internet, por exemplo), o site continua funcionando
+        normalmente, só sem o tempo relativo.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/pt-br.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script>
+        if (typeof dayjs !== 'undefined') {
+            dayjs.extend(dayjs_plugin_relativeTime);
+            dayjs.locale('pt-br');
+        }
+    </script>
+
+    <script src="../js/storage.js?v=1"></script>
+    <script src="../js/ui.js?v=1"></script>
+    <script src="../js/formulario.js?v=1"></script>
+    <script src="../js/login.js?v=1"></script>
+    <script src="../js/router.js?v=8"></script>
+</body>
+</html>

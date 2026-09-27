@@ -1,0 +1,138 @@
+/* ==========================================================================
+   PATA AMIGA — ALINHAMENTO E DISPOSIÇÃO (FLEXBOX)
+   Módulos internos alinhados com Flexbox (complementa o CSS Grid macro)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CABEÇALHO — logo + menu de navegação
+   -------------------------------------------------------------------------- */
+.cabecalho-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--espaco-6);
+  padding: var(--espaco-3) var(--espaco-4);
+  background-color: none;
+  border-bottom: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.menu-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espaco-1);
+}
+
+.menu-coluna .tira-gatos {
+  max-width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   LISTA DE GATOS — container que recebe os cards gerados via JavaScript
+   -------------------------------------------------------------------------- */
+.lista-gatos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+  margin-top: var(--espaco-4);
+}
+
+.lista-gatos .card-gato {
+  flex: 1 1 200px;
+  max-width: 240px;
+}
+
+
+/* --------------------------------------------------------------------------
+   CARD DE GATO — foto, nome, descrição e botão de adoção
+   -------------------------------------------------------------------------- */
+.card-gato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  background-color: var(--cor-fundo);
+}
+
+.card-gato img {
+  width: 100%;
+  border-radius: var(--raio-borda-pequeno);
+}
+
+
+/* --------------------------------------------------------------------------
+   FORMULÁRIO DE CADASTRO — campos e ações
+   -------------------------------------------------------------------------- */
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  margin-bottom: var(--espaco-3);
+}
+
+.campo-formulario label {
+  font-size: var(--fonte-pequena);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-texto-suave);
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+  padding: var(--espaco-2);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-pequeno);
+  font-family: var(--fonte-familia);
+  font-size: var(--fonte-corpo);
+}
+
+.acoes-formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espaco-3);
+  margin-top: var(--espaco-4);
+}
+
+.acoes-formulario button {
+  padding: var(--espaco-2) var(--espaco-4);
+  border-radius: var(--raio-borda-pequeno);
+  border: none;
+  font-size: var(--fonte-corpo);
+  cursor: pointer;
+}
+
+.acoes-formulario .btn-enviar {
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+}
+
+.acoes-formulario .btn-enviar:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.acoes-formulario .btn-cancelar {
+  background-color: transparent;
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-borda);
+}
+
+
+/* --------------------------------------------------------------------------
+   RODAPÉ — colunas de informação/contato
+   -------------------------------------------------------------------------- */
+.rodape-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+  padding: var(--espaco-5) 0;
+  border-top: 1px solid var(--cor-borda);
+}

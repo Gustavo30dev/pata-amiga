@@ -1,0 +1,114 @@
+/* ==========================================================================
+   PATA AMIGA — ESTILOS BASE (aplica as variáveis nos elementos globais)
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-familia);
+  font-size: var(--fonte-corpo);
+  line-height: var(--altura-linha);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  background-image: url('gatoinicial.jpg');
+  background-repeat: no-repeat;
+  background-position: right 90px;
+  background-size: 200px auto;
+}
+
+/* Em telas maiores, o gato de fundo pode ser um pouco maior */
+@media (min-width: 900px) {
+  body {
+    background-size: 320px auto;
+    background-position: right 100px;
+  }
+}
+
+/* Tira decorativa de gatinhos, exibida logo abaixo do menu */
+.tira-gatos {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto var(--espaco-5) auto;
+  padding-top: var(--espaco-2);
+}
+
+h1 {
+  font-size: var(--fonte-h1);
+  color: var(--cor-primaria);
+}
+
+h2 {
+  font-size: var(--fonte-h2);
+}
+
+h3 {
+  font-size: var(--fonte-h3);
+  color: var(--cor-secundaria);
+}
+
+section {
+  margin-bottom: var(--espaco-6);
+}
+
+.conteudo {
+  background-color: var(--cor-primaria-escura);
+  color: var(--cor-fundo);
+  padding: var(--espaco-5);
+  border-radius: var(--raio-borda);
+  box-shadow:
+    6px 6px 0 rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.conteudo h2,
+.conteudo h3 {
+  color: var(--cor-fundo);
+}
+
+.conteudo strong {
+  color: var(--cor-fundo);
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--raio-borda);
+}
+
+ul {
+  padding-left: var(--espaco-4);
+}
+
+li {
+  margin-bottom: var(--espaco-2);
+}
+
+footer {
+  text-align: center;
+  padding: var(--espaco-4) 0;
+  margin-top: var(--espaco-6);
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  font-size: var(--fonte-pequena);
+}
+
+fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--raio-borda);
+  padding: var(--espaco-4);
+  margin-bottom: var(--espaco-4);
+}
+
+legend {
+  padding: 0 var(--espaco-2);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-fundo);
+}
+
+.campo-formulario label {
+  color: var(--cor-fundo);
+}
