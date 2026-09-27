@@ -1,0 +1,72 @@
+/* ==========================================================================
+   PATA AMIGA — ARQUITETURA DE LAYOUT (CSS GRID)
+   Sistema de 12 colunas + breakpoints responsivos
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CONTAINER BASE — grade de 12 colunas
+   -------------------------------------------------------------------------- */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--espaco-3);
+  width: 100%;
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 0 var(--espaco-3);
+  box-sizing: border-box;
+}
+
+/* Áreas macro da página, encaixadas na grade de 12 colunas */
+.cabecalho   { grid-column: 1 / -1; }               /* ocupa a largura toda */
+.menu        { grid-column: span 12; }               /* padrão mobile-first: 12/12 */
+.conteudo    { grid-column: span 12; }
+.lateral     { grid-column: span 12; }
+.rodape      { grid-column: 1 / -1; }
+
+.card        { grid-column: span 12; }               /* 1 card por linha (mobile-first) */
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 1 — Mobile (até 599px) → já é o padrão acima (mobile-first)
+   -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 2 — Tablet retrato (600px – 899px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  .card    { grid-column: span 6; }   /* 2 cards por linha */
+  .menu    { grid-column: span 12; }
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 3 — Tablet paisagem / notebook pequeno (900px – 1199px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .menu     { grid-column: span 3; }   /* menu lateral fixo */
+  .conteudo { grid-column: span 9; }
+  .card     { grid-column: span 4; }   /* 3 cards por linha */
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 4 — Desktop (1200px – 1599px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1200px) {
+  .menu     { grid-column: span 2; }
+  .conteudo { grid-column: span 8; }
+  .lateral  { grid-column: span 2; }
+  .card     { grid-column: span 3; }   /* 4 cards por linha */
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 5 — Desktop panorâmico (1600px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1600px) {
+  .grid-container { gap: var(--espaco-5); }
+  .card { grid-column: span 2; }       /* 6 cards por linha */
+}
