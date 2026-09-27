@@ -1,0 +1,68 @@
+/* ==========================================================================
+   PATA AMIGA — DESIGN SYSTEM
+   Arquivo de variáveis CSS (Custom Properties)
+   ========================================================================== */
+
+:root {
+
+  /* ------------------------------------------------------------------------
+     1. PALETA DE CORES (8 cores — primárias, secundárias e neutras)
+     ------------------------------------------------------------------------ */
+
+  /* Primárias */
+  --cor-primaria: #E8834A;        /* laranja terroso — identidade da marca */
+  --cor-primaria-escura: #C4692F; /* usada em hover/estados ativos */
+
+  /* Secundárias */
+  --cor-secundaria: #4A7C6E;       /* verde-azulado — apoio e contraste */
+  --cor-secundaria-clara: #A8C9BE; /* fundos de seção, destaques suaves */
+
+  /* Neutras */
+  --cor-texto: #2E2A26;         /* texto principal */
+  --cor-texto-suave: #6B655F;   /* texto secundário, legendas */
+  --cor-fundo: #FFFBF7;         /* fundo geral da página */
+  --cor-borda: #DDD5CC;         /* linhas, bordas, divisores */
+
+  /* Feedback (auxiliares ao formulário de cadastro) */
+  --cor-sucesso: #4A7C4E;
+  --cor-erro: #C0453A;
+
+
+  /* ------------------------------------------------------------------------
+     2. TIPOGRAFIA (5 patamares hierárquicos)
+     ------------------------------------------------------------------------ */
+
+  --fonte-familia: 'Poppins', Arial, sans-serif;
+
+  --fonte-h1: 2rem;        /* 32px — título principal da página */
+  --fonte-h2: 1.5rem;      /* 24px — títulos de seção */
+  --fonte-h3: 1.25rem;     /* 20px — subtítulos */
+  --fonte-corpo: 1rem;     /* 16px — texto corrido */
+  --fonte-pequena: 0.8125rem; /* 13px — legendas, rodapé, labels */
+
+  --peso-normal: 400;
+  --peso-negrito: 700;
+  --altura-linha: 1.5;
+
+
+  /* ------------------------------------------------------------------------
+     3. ESPAÇAMENTO MODULAR (escala estrita, base 8px)
+     ------------------------------------------------------------------------ */
+
+  --espaco-1: 0.25rem;  /* 4px  */
+  --espaco-2: 0.5rem;   /* 8px  */
+  --espaco-3: 1rem;     /* 16px */
+  --espaco-4: 1.5rem;   /* 24px */
+  --espaco-5: 2rem;     /* 32px */
+  --espaco-6: 3rem;     /* 48px */
+  --espaco-7: 4rem;     /* 64px */
+
+
+  /* ------------------------------------------------------------------------
+     4. LAYOUT
+     ------------------------------------------------------------------------ */
+
+  --largura-maxima: 1200px;
+  --raio-borda: 8px;
+  --raio-borda-pequeno: 4px;
+}
