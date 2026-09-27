@@ -67,21 +67,53 @@ Essa separação evita que código instável chegue à `main` e permite isolar o
 desenvolvimento de cada funcionalidade sem interferir nas demais, mesmo em um
 projeto com um único desenvolvedor.
 
-## Commits semânticos
+## Commits semânticos (Conventional Commits)
 
-Os commits seguem prefixos que indicam o tipo de mudança:
+Todos os commits seguem o padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/),
+no formato `tipo: descrição no imperativo`. Isso padroniza o histórico,
+facilita a revisão de código (cada commit conta uma única mudança clara) e
+permite gerar o `CHANGELOG.md` de forma automatizada a partir dos próprios
+commits, em vez de escrevê-lo manualmente.
 
-| Prefixo    | Significado                                             |
-|------------|------------------------------------------------------------|
-| `feat:`    | nova funcionalidade                                        |
-| `fix:`     | correção de bug                                            |
-| `hotfix:`  | correção urgente aplicada diretamente a partir da `main`   |
-| `refactor:`| reorganização de código sem mudar comportamento            |
-| `chore:`   | tarefas de manutenção/estrutura (pastas, configs)           |
-| `docs:`    | documentação (README, comentários técnicos)                |
+| Prefixo     | Significado                                                | Efeito na versão (SemVer) |
+|-------------|-------------------------------------------------------------|----------------------------|
+| `feat:`     | nova funcionalidade                                         | sobe o **MINOR**           |
+| `fix:`      | correção de bug                                              | sobe o **PATCH**           |
+| `hotfix:`   | correção urgente aplicada direto a partir da `main` (extensão deste projeto ao padrão, para distinguir uma `fix:` que veio de uma branch `feature/*` de uma que veio de uma branch `hotfix/*`) | sobe o **PATCH** |
+| `refactor:` | reorganização de código sem mudar comportamento              | não sobe versão            |
+| `chore:`    | tarefas de manutenção/estrutura (pastas, configs)             | não sobe versão            |
+| `docs:`     | documentação (README, CHANGELOG, comentários técnicos)       | não sobe versão\*          |
 
-## Histórico de versões
+\* Ver justificativa na seção seguinte.
 
-- **v1.0** — primeira versão estável e funcional da SPA.
-- **v1.0.1** — hotfix de cache-busting nos arquivos CSS.
-- **v1.1.0** — documentação técnica completa no README.
+## Versionamento Semântico (SemVer)
+
+O projeto segue [SemVer](https://semver.org/lang/pt-BR/): `MAJOR.MINOR.PATCH`.
+
+- **MAJOR**: mudança incompatível, que quebra o que já existia (nenhuma
+  ocorreu ainda neste projeto — por isso o major permanece em `1`).
+- **MINOR**: nova funcionalidade adicionada de forma compatível com o que já
+  existia (originada por commits `feat:`).
+- **PATCH**: correção de bug ou ajuste que não muda a funcionalidade
+  entregue (originada por commits `fix:`/`hotfix:`).
+
+Cada *release* corresponde a um merge `develop → main` marcado com uma tag
+anotada (`git tag -a`).
+
+| Versão (tag) | Tipo de release | Commit(s) que a originaram | Descrição |
+|--------------|------------------|------------------------------|-----------|
+| **v1.0.0**   | Release inicial  | 13 commits `feat:` + 1 `chore:` (ver `CHANGELOG.md`) | Primeira versão estável e funcional da SPA completa. |
+| **v1.0.1**   | Patch (hotfix)   | `hotfix: adiciona parâmetro de versão (?v=N) nos links de CSS...` | Corrige bug real de cache do navegador servindo CSS desatualizado. |
+| **v1.0.2**   | Patch (docs)     | `docs: documenta estrutura de pastas, estratégia de branches...` | Documentação técnica completa; sem alteração de comportamento do software. |
+
+> **Por que v1.0.2 e não v1.1.0?** Pela definição estrita do SemVer, o MINOR
+> só deve subir quando uma funcionalidade nova e compatível é entregue ao
+> usuário final. Um commit `docs:` não altera o comportamento da aplicação —
+> por isso, mesmo sendo um release "grande" em conteúdo (documentação
+> completa), ele foi tratado como PATCH, e não como MINOR. Essa é a mesma
+> lógica usada por ferramentas de automação como o `semantic-release`, que
+> mapeiam diretamente o tipo do commit (`feat`/`fix`/`BREAKING CHANGE`) para
+> o campo do SemVer que deve subir.
+
+Consulte o [`CHANGELOG.md`](./CHANGELOG.md) para o detalhamento completo de
+cada versão, no formato Keep a Changelog.
