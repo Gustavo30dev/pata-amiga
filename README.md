@@ -56,6 +56,15 @@ práticas de versionamento normalmente usadas em equipes.
     validação reativa, persistência local, sincronização de UI e integração
     com a biblioteca externa Day.js)
   - `feature/documentacao-readme` — esta própria documentação técnica
+  - `feature/changelog-semver` — CHANGELOG.md e documentação de Conventional Commits/SemVer
+
+> **Nota sobre a permanência das branches:** no fluxo real de trabalho em
+> equipe, é comum apagar uma branch `feature/*`/`hotfix/*` logo depois do
+> merge (`git branch -d`), já que o histórico dela permanece preservado
+> dentro dos commits de merge na `develop`/`main` mesmo sem a branch existir
+> mais. Neste repositório, as branches foram mantidas intencionalmente
+> (em vez de apagadas) para que a estrutura do GitFlow fique visível e
+> navegável diretamente no GitHub, facilitando a avaliação da atividade.
 - **`hotfix/*`**: usada para correções urgentes diretamente a partir da
   `main`. Neste projeto, `hotfix/cache-css-desatualizado` corrigiu um bug real
   encontrado durante o desenvolvimento — o navegador servia uma versão antiga
