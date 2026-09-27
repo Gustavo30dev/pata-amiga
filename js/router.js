@@ -23,6 +23,10 @@
       o documento nunca recarrega, só o conteúdo de um único <main> muda.
    ========================================================================== */
 
+import gatoImg from '../imagens/gato.jpg';
+import bentoImg from '../imagens/bento.jpg';
+import lunaImg from '../imagens/Luna.jpg';
+import simbaImg from '../imagens/Simba.jpg';
 
 /* --------------------------------------------------------------------------
    1. TEMPLATES — o conteúdo de cada "página" vira uma função que retorna HTML
@@ -33,7 +37,7 @@ function paginaInicio() {
     <section class="conteudo" aria-labelledby="titulo-inicio">
         <h2 id="titulo-inicio">Bem vindos ao PATA AMIGA!</h2>
 
-        <img src="/gato.jpg"alt="Gato branco e preto esticando a pata em sua direção" width="100">
+        <img src="${gatoImg}""alt="Gato branco e preto esticando a pata em sua direção" width="100">
 
         <p>
             Aqui você encontra gatinhos esperando por um lar cheio de carinho.
@@ -309,9 +313,9 @@ function paginaNaoEncontrada() {
    -------------------------------------------------------------------------- */
 
 const gatosDisponiveis = [
- { nome: 'Bento', idade: '2 anos', foto: '/bento.jpg', status: 'padrao' },
-{ nome: 'Luna', idade: '1 ano', foto: '/Luna.jpg', status: 'aceito' },
-{ nome: 'Simba', idade: '3 anos', foto: '/Simba.jpg', status: 'erro' },
+ { nome: 'Bento', idade: '2 anos', foto: bentoImg, status: 'padrao' },
+{ nome: 'Luna', idade: '1 ano', foto: lunaImg, status: 'aceito' },
+{ nome: 'Simba', idade: '3 anos', foto: simbaImg, status: 'erro' },
 ];
 
 // Mapa que traduz o "status" (dado bruto) para a aparência do badge
