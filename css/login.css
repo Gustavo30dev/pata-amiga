@@ -1,0 +1,35 @@
+/* ==========================================================================
+   PATA AMIGA — CONSULTA DO CADASTRO
+   ========================================================================== */
+
+.login-inicio-form {
+  max-width: 520px;
+  display: grid;
+  gap: var(--espaco-3);
+}
+
+.login-inicio-form .btn-enviar {
+  justify-self: start;
+}
+
+.resultado-login {
+  margin-top: var(--espaco-4);
+  padding: var(--espaco-3);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  background-color: #fff;
+}
+
+.resultado-login-sucesso {
+  border-color: var(--cor-sucesso);
+  box-shadow: 0 0 0 3px rgba(74, 124, 78, 0.15);
+}
+
+.resultado-login-erro {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 0 3px rgba(192, 69, 58, 0.15);
+}
+
+.resultado-login h3 {
+  margin-top: 0;
+}
