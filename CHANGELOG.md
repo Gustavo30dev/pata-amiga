@@ -4,6 +4,24 @@ Todas as alterações relevantes deste projeto são documentadas aqui.
 O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/)
 e o projeto adota [Versionamento Semântico](https://semver.org/lang/pt-BR/).
 
+# Changelog
+
+Todas as alterações relevantes deste projeto são documentadas aqui.
+O formato segue o [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/)
+e o projeto adota [Versionamento Semântico](https://semver.org/lang/pt-BR/).
+
+## [1.0.4] — Documentação
+
+### Documentação
+- `docs:` explica no README por que as branches `feature/*`/`hotfix/*` foram
+  mantidas no repositório em vez de apagadas após o merge.
+
+## [1.0.3] — Changelog e versionamento
+
+### Documentação
+- `docs:` adiciona este CHANGELOG.md e documenta a estratégia de Conventional
+  Commits + Versionamento Semântico no README.
+
 ## [1.0.2] — Documentação
 
 ### Documentação
