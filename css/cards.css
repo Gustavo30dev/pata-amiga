@@ -1,0 +1,40 @@
+/* ==========================================================================
+   PATA AMIGA — CARDS DE GATOS
+   Ajuste visual para garantir que os dados textuais do card permaneçam
+   visíveis junto da imagem.
+   ========================================================================== */
+
+.lista-gatos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--espaco-4);
+  margin-top: var(--espaco-4);
+}
+
+.card-gato {
+  overflow: hidden;
+}
+
+.card-gato img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-gato h3,
+.card-gato p {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  margin: var(--espaco-2) 0;
+  color: var(--cor-texto);
+}
+
+.card-gato h3 {
+  margin-bottom: var(--espaco-1);
+}
+
+.card-gato p {
+  margin-top: 0;
+}

@@ -1,0 +1,284 @@
+/* ==========================================================================
+   PATA AMIGA — COMPONENTES DE FEEDBACK
+   Badges, Alertas, Toast e Modal — kit padronizado para reuso futuro
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   VARIANTE CLARA DO BLOCO DE CONTEÚDO
+   Usada quando o conteúdo interno já tem suas próprias cores (como os
+   componentes de feedback), evitando conflito com o texto branco do
+   ".conteudo" padrão (pensado para o fundo laranja escuro)
+   -------------------------------------------------------------------------- */
+.conteudo-claro {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.conteudo-claro h2 {
+  color: var(--cor-primaria);
+}
+
+.conteudo-claro h3 {
+  color: var(--cor-secundaria);
+}
+
+.conteudo-claro strong {
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   BADGES — etiquetas de categorização semântica
+   -------------------------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: var(--espaco-1) var(--espaco-3);
+  border-radius: 999px;
+  font-size: var(--fonte-pequena);
+  font-weight: var(--peso-negrito);
+  color: var(--cor-fundo);
+  margin-right: var(--espaco-2);
+  margin-bottom: var(--espaco-2);
+}
+
+.badge-sucesso { background-color: var(--cor-sucesso); }
+.badge-erro    { background-color: var(--cor-erro); }
+.badge-alerta  { background-color: var(--cor-primaria); }
+.badge-info    { background-color: var(--cor-secundaria); }
+
+
+/* --------------------------------------------------------------------------
+   ALERTAS — caixas de destaque para mensagens do sistema
+   -------------------------------------------------------------------------- */
+.alerta {
+  padding: var(--espaco-3) var(--espaco-4);
+  border-left: 4px solid;
+  border-radius: var(--raio-borda-pequeno);
+  margin-bottom: var(--espaco-3);
+  font-size: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+}
+
+.alerta strong {
+  display: block;
+  margin-bottom: var(--espaco-1);
+}
+
+.alerta-sucesso {
+  border-color: var(--cor-sucesso);
+  background-color: rgba(74, 124, 78, 0.12);
+  color: var(--cor-sucesso);
+}
+
+.alerta-erro {
+  border-color: var(--cor-erro);
+  background-color: rgba(192, 69, 58, 0.12);
+  color: var(--cor-erro);
+}
+
+.alerta-aviso {
+  border-color: var(--cor-primaria);
+  background-color: rgba(232, 131, 74, 0.15);
+  color: var(--cor-primaria-escura);
+}
+
+.alerta-info {
+  border-color: var(--cor-secundaria);
+  background-color: rgba(74, 124, 110, 0.12);
+  color: var(--cor-secundaria);
+}
+
+
+/* --------------------------------------------------------------------------
+   TOAST — notificação não obstrutiva
+   (aqui exibida em modo estático para demonstração visual; numa aplicação
+   real, o back-end/JS dispararia sua exibição e o auto-fechamento)
+   -------------------------------------------------------------------------- */
+.toast {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-2);
+  background-color: var(--cor-texto);
+  color: var(--cor-fundo);
+  padding: var(--espaco-2) var(--espaco-4);
+  border-radius: var(--raio-borda);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  font-size: var(--fonte-corpo);
+  margin-bottom: var(--espaco-3);
+}
+
+.toast-icone {
+  font-weight: var(--peso-negrito);
+  font-size: var(--fonte-h3);
+  line-height: 1;
+}
+
+.toast-sucesso { border-left: 4px solid var(--cor-sucesso); }
+.toast-erro    { border-left: 4px solid var(--cor-erro); }
+
+
+/* --------------------------------------------------------------------------
+   MODAL — janela sobreposta (via "checkbox hack", sem JavaScript)
+   -------------------------------------------------------------------------- */
+.modal-toggle-checkbox {
+  display: none;
+}
+
+.modal-abrir {
+  cursor: pointer;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: var(--espaco-4);
+}
+
+/* Regra-chave: quando o checkbox invisível está marcado,
+   exibe o overlay que vem depois dele no HTML */
+.modal-toggle-checkbox:checked ~ .modal-overlay {
+  display: flex;
+}
+
+.modal-caixa {
+  position: relative;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  padding: var(--espaco-5);
+  border-radius: var(--raio-borda);
+  max-width: 340px;
+  width: 100%;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.modal-caixa h3 {
+  color: var(--cor-primaria);
+}
+
+.modal-fechar {
+  position: absolute;
+  top: var(--espaco-2);
+  right: var(--espaco-3);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--cor-texto-suave);
+}
+
+.modal-fechar:hover {
+  color: var(--cor-erro);
+}
+
+/* Foto do gatinho dentro do modal */
+.modal-foto {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--raio-borda-pequeno);
+  margin-bottom: var(--espaco-3);
+}
+
+/* Radio buttons de aceitar/recusar ficam escondidos — só os labels (botões) aparecem */
+.resposta-toggle {
+  display: none;
+}
+
+.escolha-adocao {
+  display: flex;
+  gap: var(--espaco-3);
+  margin: var(--espaco-4) 0;
+}
+
+.escolha-adocao label {
+  cursor: pointer;
+  text-align: center;
+  flex: 1;
+}
+
+/* Status: por padrão, só "Fila de espera" (padrão) aparece */
+.status-label-aceito,
+.status-label-recusado {
+  display: none;
+}
+
+/* Quando o radio "Aceitar" é marcado: some o status padrão, aparece o de sucesso.
+   Cobre os DOIS locais onde o status aparece:
+   1) ".status-adocao" direto na página (irmão direto do radio)
+   2) ".status-adocao" dentro do modal (".modal-overlay" é irmão do radio,
+      e o status fica dentro dele) */
+#aceitar-bento:checked ~ .status-adocao .status-label-padrao,
+#aceitar-bento:checked ~ .modal-overlay .status-adocao .status-label-padrao {
+  display: none;
+}
+
+#aceitar-bento:checked ~ .status-adocao .status-label-aceito,
+#aceitar-bento:checked ~ .modal-overlay .status-adocao .status-label-aceito {
+  display: inline-block;
+}
+
+/* Quando o radio "Não aceitar" é marcado: some o padrão, aparece "fila de espera" de novo
+   (visualmente igual ao padrão, mas agora resultado de uma escolha explícita) */
+#recusar-bento:checked ~ .status-adocao .status-label-padrao,
+#recusar-bento:checked ~ .modal-overlay .status-adocao .status-label-padrao {
+  display: none;
+}
+
+#recusar-bento:checked ~ .status-adocao .status-label-recusado,
+#recusar-bento:checked ~ .modal-overlay .status-adocao .status-label-recusado {
+  display: inline-block;
+}
+
+
+/* --------------------------------------------------------------------------
+   LOGIN SIMULADO (sem back-end) — checkbox hack alterna entre
+   formulário de login e "área logada" com o status
+   -------------------------------------------------------------------------- */
+.login-toggle-checkbox {
+  display: none;
+}
+
+.login-caixa,
+.area-logada {
+  max-width: 320px;
+  padding: var(--espaco-4);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  margin-bottom: var(--espaco-3);
+}
+
+.area-logada {
+  display: none;
+}
+
+/* Quando o checkbox de login é marcado: esconde o formulário, mostra a área logada */
+.login-toggle-checkbox:checked ~ .login-caixa {
+  display: none;
+}
+
+.login-toggle-checkbox:checked ~ .area-logada {
+  display: block;
+}
+
+/* Estende a lógica de status (aceitar/recusar) para também atualizar
+   o badge dentro da área logada */
+#aceitar-bento:checked ~ .area-logada .status-label-padrao {
+  display: none;
+}
+
+#aceitar-bento:checked ~ .area-logada .status-label-aceito {
+  display: inline-block;
+}
+
+#recusar-bento:checked ~ .area-logada .status-label-padrao {
+  display: none;
+}
+
+#recusar-bento:checked ~ .area-logada .status-label-recusado {
+  display: inline-block;
+}
