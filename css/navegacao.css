@@ -33,9 +33,11 @@
   text-decoration: underline;
 }
 
-.menu-toggle-checkbox,
 .menu-toggle-label {
   display: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
 }
 
 .tem-submenu {
@@ -60,10 +62,10 @@
   z-index: 20;
 }
 
-/* Desktop: o submenu abre exclusivamente quando o mouse passa sobre Projeto.
-   Removemos :focus-within porque o clique deixava o submenu visualmente
-   preso ao foco do link. */
-.tem-submenu:hover .submenu {
+/* Desktop: o submenu abre com mouse ou quando a navegação por teclado
+   coloca o foco dentro do item Projeto. */
+.tem-submenu:hover .submenu,
+.tem-submenu:focus-within .submenu {
   display: flex;
 }
 
@@ -93,7 +95,7 @@
     z-index: 20;
   }
 
-  .menu-toggle-checkbox:checked ~ .menu-lista {
+  .menu-nav.menu-aberto .menu-lista {
     display: flex;
   }
 

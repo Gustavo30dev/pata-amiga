@@ -20,7 +20,7 @@
    3) RENDERIZAÇÃO: cada rota é uma função que devolve uma string HTML
       (template). O roteador injeta essa string dentro da <div id="app">
       via innerHTML — essa é a "manipulação do DOM" central da SPA:
-      o documento nunca recarrega, só o conteúdo de uma única div muda.
+      o documento nunca recarrega, só o conteúdo de um único <main> muda.
    ========================================================================== */
 
 
@@ -30,10 +30,10 @@
 
 function paginaInicio() {
   return `
-    <section class="conteudo">
-        <h2>Bem vindos ao PATA AMIGA!</h2>
+    <section class="conteudo" aria-labelledby="titulo-inicio">
+        <h2 id="titulo-inicio">Bem vindos ao PATA AMIGA!</h2>
 
-        <img src="../imagens/gato.jpg" title="Um gato branco e preto em um fundo azul esticando a pata em sua direção" width="100">
+        <img src="../imagens/gato.jpg" alt="Gato branco e preto esticando a pata em sua direção" width="100">
 
         <p>
             Aqui você encontra gatinhos esperando por um lar cheio de carinho.
@@ -41,22 +41,23 @@ function paginaInicio() {
         </p>
     </section>
 
-    <section class="conteudo">
-        <h2>Gatinhos disponíveis</h2>
+    <section class="conteudo" aria-labelledby="titulo-gatinhos">
+        <h2 id="titulo-gatinhos">Gatinhos disponíveis</h2>
         <p>Conheça alguns dos gatinhos que estão à espera de um lar:</p>
-        <div id="lista-gatos" class="lista-gatos">
+        <div id="lista-gatos" class="lista-gatos" aria-label="Gatinhos disponíveis para adoção">
             <!-- Preenchido dinamicamente por preencherListaGatos() em router.js -->
         </div>
     </section>
 
-    <section class="conteudo conteudo-claro login-inicio" id="login-inicio">
-        <h2>Acompanhe seu cadastro</h2>
+    <section class="conteudo conteudo-claro login-inicio" id="login-inicio" aria-labelledby="titulo-acompanhe-cadastro">
+        <h2 id="titulo-acompanhe-cadastro">Acompanhe seu cadastro</h2>
         <p>Já enviou seu cadastro? Digite o CPF, telefone ou nome completo informado no formulário para consultar seus dados de adoção.</p>
 
         <form id="form-login-inicio" class="login-inicio-form" novalidate>
             <div class="campo-formulario">
                 <label for="login-cpf">CPF, telefone ou nome completo:</label>
-                <input type="text" id="login-cpf" name="cpf" placeholder="CPF, telefone ou nome completo" maxlength="80" required>
+                <input type="text" id="login-cpf" name="cpf" placeholder="CPF, telefone ou nome completo" maxlength="80" required aria-describedby="ajuda-login-cpf">
+                <span id="ajuda-login-cpf" class="texto-ajuda">Informe pelo menos 3 caracteres.</span>
             </div>
             <button type="submit" class="btn-enviar">Consultar cadastro</button>
         </form>
@@ -139,8 +140,8 @@ function paginaProjeto() {
 
 function paginaCadastro() {
   return `
-    <section class="conteudo">
-        <h2>Fila de espera para adoção</h2>
+    <section class="conteudo" aria-labelledby="titulo-cadastro">
+        <h2 id="titulo-cadastro">Fila de espera para adoção</h2>
         <p>
             Preencha o formulário abaixo com seus dados para entrar na nossa fila de espera de adoção.
             Assim que um gatinho compatível com o seu perfil estiver disponível, entraremos em contato.
@@ -152,22 +153,26 @@ function paginaCadastro() {
 
                 <div class="campo-formulario">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}" title="Digite o CPF no formato 000.000.000-00" maxlength="14" required>
+                    <input type="text" id="cpf" name="cpf" aria-describedby="erro-cpf" placeholder="000.000.000-00" pattern="\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}" title="Digite o CPF no formato 000.000.000-00" maxlength="14" required>
+                    <span id="erro-cpf" class="mensagem-erro" aria-live="polite"></span>
                 </div>
 
                 <div class="campo-formulario">
                     <label for="nome">Nome completo:</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" pattern="\\S+(\\s+\\S+)+" title="Digite nome e sobrenome" required>
+                    <input type="text" id="nome" name="nome" aria-describedby="erro-nome" placeholder="Digite seu nome completo" pattern="\\S+(\\s+\\S+)+" title="Digite nome e sobrenome" required>
+                    <span id="erro-nome" class="mensagem-erro" aria-live="polite"></span>
                 </div>
 
                 <div class="campo-formulario">
                     <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" pattern="\\(\\d{2}\\)\\s\\d{4,5}-\\d{4}" title="Digite o telefone no formato (00) 00000-0000" maxlength="15" required>
+                    <input type="tel" id="telefone" name="telefone" aria-describedby="erro-telefone" placeholder="(00) 00000-0000" pattern="\\(\\d{2}\\)\\s\\d{4,5}-\\d{4}" title="Digite o telefone no formato (00) 00000-0000" maxlength="15" required>
+                    <span id="erro-telefone" class="mensagem-erro" aria-live="polite"></span>
                 </div>
 
                 <div class="campo-formulario">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" minlength="5" required>
+                    <input type="text" id="endereco" name="endereco" aria-describedby="erro-endereco" placeholder="Rua, número, bairro, cidade" minlength="5" required>
+                    <span id="erro-endereco" class="mensagem-erro" aria-live="polite"></span>
                 </div>
             </fieldset>
 
@@ -175,7 +180,8 @@ function paginaCadastro() {
                 <legend>Motivo da adoção</legend>
                 <div class="campo-formulario">
                     <label for="motivo">Por que você quer adotar um gatinho?</label>
-                    <textarea id="motivo" name="motivo" rows="6" cols="50" placeholder="Conte um pouco sobre o motivo da sua adoção" minlength="10" required></textarea>
+                    <textarea id="motivo" name="motivo" aria-describedby="erro-motivo" rows="6" cols="50" placeholder="Conte um pouco sobre o motivo da sua adoção" minlength="10" required></textarea>
+                    <span id="erro-motivo" class="mensagem-erro" aria-live="polite"></span>
                 </div>
             </fieldset>
 
@@ -222,44 +228,38 @@ function paginaCadastro() {
             <span>Cadastro enviado com sucesso!</span>
         </div>
 
-        <h3>Modal</h3>
-        <input type="checkbox" id="modal-toggle" class="modal-toggle-checkbox">
-        <input type="radio" name="resposta-bento" id="aceitar-bento" class="resposta-toggle">
-        <input type="radio" name="resposta-bento" id="recusar-bento" class="resposta-toggle">
+        <h3 id="titulo-modal-demo">Modal acessível</h3>
+        <button type="button" class="btn-enviar modal-abrir" aria-haspopup="dialog" aria-controls="modal-acessivel">Ver detalhes do gatinho</button>
 
-        <label for="modal-toggle" class="btn-enviar modal-abrir">Ver detalhes do gatinho</label>
-
-        <p>Status atual do Bento na página (persiste mesmo depois de fechar o popup):</p>
-        <div class="status-adocao">
+        <p>Status atual do Bento na página:</p>
+        <div class="status-adocao" aria-live="polite" aria-label="Status da adoção do Bento">
             <span class="badge badge-alerta status-label status-label-padrao">Fila de espera</span>
-            <span class="badge badge-sucesso status-label status-label-aceito">Entraremos em contato!</span>
-            <span class="badge badge-alerta status-label status-label-recusado">Fila de espera</span>
+            <span class="badge badge-sucesso status-label status-label-aceito" hidden>Entraremos em contato!</span>
+            <span class="badge badge-alerta status-label status-label-recusado" hidden>Fila de espera</span>
         </div>
 
-        <div class="modal-overlay">
-            <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-bento">
-                <label for="modal-toggle" class="modal-fechar" aria-label="Fechar">×</label>
+        <div class="modal-overlay" id="modal-acessivel" hidden>
+            <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-bento" aria-describedby="descricao-modal-bento">
+                <button type="button" class="modal-fechar" aria-label="Fechar detalhes do Bento">×</button>
                 <h3 id="titulo-modal-bento">Bento</h3>
                 <img class="modal-foto" src="../imagens/bento.jpg" alt="Bento, gatinho tigrado, deitado de barriga para cima em cima de um tapete">
-                <p>Gatinho de 2 anos, muito dócil, já castrado e vacinado. Aguardando um lar cheio de carinho.</p>
+                <p id="descricao-modal-bento">Gatinho de 2 anos, muito dócil, já castrado e vacinado. Aguardando um lar cheio de carinho.</p>
 
-                <div class="escolha-adocao">
-                    <label for="aceitar-bento" class="btn-enviar">Aceitar</label>
-                    <label for="recusar-bento" class="btn-cancelar">Não aceitar</label>
+                <div class="escolha-adocao" aria-label="Decisão sobre a adoção do Bento">
+                    <button type="button" class="btn-enviar" data-resposta-bento="aceito">Aceitar</button>
+                    <button type="button" class="btn-cancelar" data-resposta-bento="recusado">Não aceitar</button>
                 </div>
 
-                <div class="status-adocao">
+                <div class="status-adocao" aria-live="polite" aria-label="Resultado da decisão">
                     <span class="badge badge-alerta status-label status-label-padrao">Fila de espera</span>
-                    <span class="badge badge-sucesso status-label status-label-aceito">Entraremos em contato!</span>
-                    <span class="badge badge-alerta status-label status-label-recusado">Fila de espera</span>
+                    <span class="badge badge-sucesso status-label status-label-aceito" hidden>Entraremos em contato!</span>
+                    <span class="badge badge-alerta status-label status-label-recusado" hidden>Fila de espera</span>
                 </div>
             </div>
         </div>
 
         <h3 id="login-simulado">Login (simulado)</h3>
         <p>Este login é fictício — qualquer usuário e senha "funcionam", pois não há back-end validando.</p>
-
-        <input type="checkbox" id="login-toggle" class="login-toggle-checkbox">
 
         <div class="login-caixa">
             <div class="campo-formulario">
@@ -270,17 +270,17 @@ function paginaCadastro() {
                 <label for="senha-fake">Senha:</label>
                 <input type="password" id="senha-fake" placeholder="Digite qualquer senha">
             </div>
-            <label for="login-toggle" class="btn-enviar">Entrar</label>
+            <button type="button" class="btn-enviar" id="btn-login-demo" aria-controls="area-logada-demo" aria-expanded="false">Entrar</button>
         </div>
 
-        <div class="area-logada">
+        <div class="area-logada" id="area-logada-demo" hidden>
             <p>Bem-vindo(a)! Este é o status da sua solicitação de adoção:</p>
-            <div class="status-adocao">
+            <div class="status-adocao" aria-live="polite">
                 <span class="badge badge-alerta status-label status-label-padrao">Fila de espera</span>
-                <span class="badge badge-sucesso status-label status-label-aceito">Entraremos em contato!</span>
-                <span class="badge badge-alerta status-label status-label-recusado">Fila de espera</span>
+                <span class="badge badge-sucesso status-label status-label-aceito" hidden>Entraremos em contato!</span>
+                <span class="badge badge-alerta status-label status-label-recusado" hidden>Fila de espera</span>
             </div>
-            <label for="login-toggle" class="btn-cancelar">Sair</label>
+            <button type="button" class="btn-cancelar" id="btn-sair-demo">Sair</button>
         </div>
     </section>
   `;
@@ -327,12 +327,12 @@ function criarCardGato(gato) {
   const rotulo = rotulosStatus[gato.status] || rotulosStatus.padrao;
 
   return `
-    <div class="card-gato">
+    <article class="card-gato" aria-labelledby="titulo-gato-${gato.nome.toLowerCase()}">
       <img src="${gato.foto}" alt="${gato.nome}, gatinho disponível para adoção">
-      <h3>${gato.nome}</h3>
+      <h3 id="titulo-gato-${gato.nome.toLowerCase()}">${gato.nome}</h3>
       <p>${gato.idade}</p>
       <span class="badge ${rotulo.classe}">${rotulo.texto}</span>
-    </div>
+    </article>
   `;
 }
 
@@ -369,6 +369,9 @@ function renderizarRota() {
   preencherListaGatos(); // popula a lista de cards, se a rota atual tiver o container
   restaurarDadosPersistidosDaTela(); // delega a restauração ao módulo de UI
   destacarLinkAtivo(nomeRota);
+
+  // Anuncia a troca de rota para tecnologias assistivas sem recarregar a página.
+  app.focus({ preventScroll: true });
 
   // Se o link clicado pedia rolagem até uma sub-seção (ex.: #sobre, #ajudar),
   // isso foi guardado antes da troca de hash — ver interceptarCliques()
@@ -407,9 +410,8 @@ function interceptarCliques(evento) {
     location.hash = novaHash; // muda a hash -> dispara 'hashchange' abaixo
   }
 
-  // Fecha o menu hambúrguer no mobile após navegar
-  const menuToggle = document.getElementById('menu-toggle');
-  if (menuToggle) menuToggle.checked = false;
+  // Fecha o menu hambúrguer no mobile após navegar.
+  window.PataAmigaAcessibilidade?.fecharMenu();
 }
 
 /* --------------------------------------------------------------------------

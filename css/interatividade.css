@@ -2,6 +2,64 @@
    PATA AMIGA — INTERATIVIDADE (estados de botões + validação de formulário)
    ========================================================================== */
 
+
+/* --------------------------------------------------------------------------
+   CONTROLES INTERATIVOS — foco visível e área clicável consistente
+   -------------------------------------------------------------------------- */
+.btn-enviar,
+.btn-cancelar,
+.btn-acessibilidade,
+.modal-fechar,
+.menu-toggle-label {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn-enviar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) var(--espaco-4);
+  border-radius: var(--raio-borda-pequeno);
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  text-decoration: none;
+}
+
+.btn-cancelar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-2);
+  padding: var(--espaco-2) var(--espaco-4);
+  border-radius: var(--raio-borda-pequeno);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+}
+
+.btn-enviar:focus-visible,
+.btn-cancelar:focus-visible,
+.btn-acessibilidade:focus-visible,
+.modal-fechar:focus-visible,
+.menu-toggle-label:focus-visible,
+.menu-lista a:focus-visible,
+.campo-formulario input:focus-visible,
+.campo-formulario textarea:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 3px;
+}
+
+.btn-enviar:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.btn-cancelar:hover {
+  background-color: var(--cor-borda);
+}
+
 .acoes-formulario button {
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
@@ -14,10 +72,7 @@
   background-color: var(--cor-borda);
 }
 
-.acoes-formulario button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(232, 131, 74, 0.45);
-}
+
 
 .acoes-formulario button:active {
   transform: scale(0.97);
@@ -42,7 +97,8 @@
 
 .campo-formulario input:focus,
 .campo-formulario textarea:focus {
-  outline: none;
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
   border-color: var(--cor-primaria);
   box-shadow: 0 0 0 3px rgba(232, 131, 74, 0.25);
 }

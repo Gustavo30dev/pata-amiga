@@ -41,10 +41,16 @@
     }
 
     elementoMensagem.textContent = mensagem;
+    if (elementoMensagem.id && !campo.getAttribute('aria-describedby')) {
+      campo.setAttribute('aria-describedby', elementoMensagem.id);
+    }
   }
 
   function validarCampo(campo) {
-    if (campo.checkValidity()) {
+    const valido = campo.checkValidity();
+    campo.setAttribute('aria-invalid', String(!valido));
+
+    if (valido) {
       exibirMensagemCampo(campo, '');
     } else {
       exibirMensagemCampo(campo, obterMensagemErro(campo));

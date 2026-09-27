@@ -16,15 +16,18 @@
     <link rel="stylesheet" href="../css/login.css?v=1">
 </head>
 <body class="pagina-spa">
+    <a class="skip-link" href="#app">Pular para o conteúdo principal</a>
 
-    <header class="cabecalho-flex">
+    <header class="cabecalho-flex" aria-label="Cabeçalho principal">
         <h1><img class="logo" src="../imagens/logo.png" alt="logo laranja escrito pata amiga" width="200"></h1>
 
         <div class="menu-coluna">
+            <div class="controles-acessibilidade" aria-label="Controles de acessibilidade">
+                <button type="button" id="btn-alto-contraste" class="btn-acessibilidade" aria-pressed="false">Alto contraste</button>
+            </div>
             <img class="tira-gatos" src="../imagens/gatosmenu-preto.png" alt="Ilustração de quatro gatinhos em traço fino">
-            <nav class="menu-nav">
-                <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-                <label for="menu-toggle" class="menu-toggle-label" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-lista">☰</label>
+            <nav class="menu-nav" aria-label="Navegação principal">
+                <button type="button" id="menu-toggle" class="menu-toggle-label" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-lista">☰</button>
 
                 <ul class="menu-lista" id="menu-lista">
                     <li><a href="#/inicio" data-rota="inicio">Início</a></li>
@@ -47,7 +50,7 @@
         substituído pelo js/router.js a cada navegação, via innerHTML.
         Note que ela já nasce vazia — quem preenche é o JavaScript.
     -->
-    <main id="app" class="grid-container">
+    <main id="app" class="grid-container" tabindex="-1" aria-label="Conteúdo principal">
         <!-- Conteúdo injetado dinamicamente pelo router.js -->
     </main>
 
@@ -77,6 +80,7 @@
     <script src="../js/ui.js?v=1"></script>
     <script src="../js/formulario.js?v=1"></script>
     <script src="../js/login.js?v=1"></script>
-    <script src="../js/router.js?v=8"></script>
+    <script src="../js/acessibilidade.js?v=1"></script>
+    <script src="../js/router.js?v=9"></script>
 </body>
 </html>

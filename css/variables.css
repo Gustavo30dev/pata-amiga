@@ -26,6 +26,7 @@
   /* Feedback (auxiliares ao formulário de cadastro) */
   --cor-sucesso: #4A7C4E;
   --cor-erro: #C0453A;
+  --cor-foco: #005FCC;
 
 
   /* ------------------------------------------------------------------------
@@ -65,4 +66,22 @@
   --largura-maxima: 1200px;
   --raio-borda: 8px;
   --raio-borda-pequeno: 4px;
+}
+
+
+/* --------------------------------------------------------------------------
+   MODO DE ALTO CONTRASTE — acionado pelo controle de acessibilidade
+   -------------------------------------------------------------------------- */
+body.alto-contraste {
+  --cor-primaria: #FFD400;
+  --cor-primaria-escura: #FFF06A;
+  --cor-secundaria: #7FFFD4;
+  --cor-secundaria-clara: #003B32;
+  --cor-texto: #FFFFFF;
+  --cor-texto-suave: #FFFFFF;
+  --cor-fundo: #000000;
+  --cor-borda: #FFFFFF;
+  --cor-sucesso: #7CFF7C;
+  --cor-erro: #FF6B6B;
+  --cor-foco: #00FFFF;
 }

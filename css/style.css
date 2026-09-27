@@ -1,3 +1,63 @@
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateY(-120%);
+  padding: var(--espaco-2) var(--espaco-4);
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+  text-decoration: none;
+  font-weight: var(--peso-negrito);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+}
+
+.controles-acessibilidade {
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--espaco-2);
+}
+
+.btn-acessibilidade {
+  padding: var(--espaco-1) var(--espaco-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: var(--fonte-pequena);
+}
+
+body.alto-contraste {
+  background-image: none;
+}
+
+body.alto-contraste .conteudo {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+}
+
+body.alto-contraste .conteudo h2,
+body.alto-contraste .conteudo h3,
+body.alto-contraste .conteudo strong {
+  color: #FFFFFF;
+}
+
+body.alto-contraste .card-gato,
+body.alto-contraste .conteudo-claro,
+body.alto-contraste .login-caixa,
+body.alto-contraste .area-logada {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
 /* ==========================================================================
    PATA AMIGA — ESTILOS BASE (aplica as variáveis nos elementos globais)
    ========================================================================== */
@@ -107,6 +167,26 @@ legend {
   padding: 0 var(--espaco-2);
   font-weight: var(--peso-negrito);
   color: var(--cor-fundo);
+}
+
+.texto-ajuda,
+.mensagem-erro {
+  font-size: var(--fonte-pequena);
+  color: var(--cor-texto-suave);
+}
+
+.mensagem-erro:empty {
+  display: none;
+}
+
+.mensagem-erro {
+  color: var(--cor-erro);
+  font-weight: var(--peso-negrito);
+}
+
+.campo-formulario input[aria-invalid="true"],
+.campo-formulario textarea[aria-invalid="true"] {
+  border-color: var(--cor-erro);
 }
 
 .campo-formulario label {
